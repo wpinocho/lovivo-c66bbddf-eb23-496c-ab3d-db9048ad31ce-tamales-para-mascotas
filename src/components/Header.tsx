@@ -1,6 +1,5 @@
 import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   cartItemsCount: number;
@@ -8,44 +7,21 @@ interface HeaderProps {
 }
 
 export const Header = ({ cartItemsCount, onCartClick }: HeaderProps) => {
-  const location = useLocation();
   console.log("Header rendered with cart items count:", cartItemsCount);
-  
-  const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      // Si no estamos en la página principal, navegar primero
-      window.location.href = `/#${sectionId}`;
-    } else {
-      // Si estamos en la página principal, hacer scroll
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
   
   return (
     <header className="bg-green-600 text-white shadow-lg">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2 hover:text-green-200 transition-colors">
+          <div className="flex items-center space-x-2">
             <span className="text-2xl">🌽</span>
             <h1 className="text-2xl font-bold">Tamales Pet</h1>
-          </Link>
+          </div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <button 
-              onClick={() => scrollToSection('productos')}
-              className="hover:text-green-200 transition-colors"
-            >
-              Productos
-            </button>
-            <Link to="/nosotros" className="hover:text-green-200 transition-colors">
-              Nosotros
-            </Link>
-            <Link to="/contacto" className="hover:text-green-200 transition-colors">
-              Contacto
-            </Link>
+            <a href="#productos" className="hover:text-green-200 transition-colors">Productos</a>
+            <a href="#nosotros" className="hover:text-green-200 transition-colors">Nosotros</a>
+            <a href="#contacto" className="hover:text-green-200 transition-colors">Contacto</a>
           </nav>
 
           <Button
