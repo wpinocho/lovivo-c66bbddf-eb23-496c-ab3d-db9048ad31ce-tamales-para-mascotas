@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Nosotros from "./pages/Nosotros";
 import Contacto from "./pages/Contacto";
+import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="*" element={<NotFound />} />
+        <Route path="/index" element={<Index />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
