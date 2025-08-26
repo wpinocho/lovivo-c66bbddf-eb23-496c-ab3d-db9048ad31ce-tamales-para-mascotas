@@ -157,15 +157,20 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {products.map(product => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onAddToCart={addToCart}
-            />
-          ))}
-        </div>
+        <section id="productos">
+          <h2 className="text-3xl font-bold text-green-800 mb-8 text-center">
+            Nuestros Productos
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {products.map(product => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAddToCart={addToCart}
+              />
+            ))}
+          </div>
+        </section>
 
         <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
           <h2 className="text-3xl font-bold text-green-800 mb-6 text-center">
